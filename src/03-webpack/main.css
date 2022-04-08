@@ -1,0 +1,11 @@
+@import url('./style.scss');
+@import url('./style.less');
+
+.cat {
+  display: none;
+}
+
+.cat__image {
+  height: 300px;
+  width: 500px;
+}
