@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  background-color: #73B77A;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  gap: 10px 20px;
+}
+
+.harry-potter {
+  order: 1;
+  border: 3px solid #A88F51;
+  padding: 5px;
+  background-color: #D3BD84;
+}
+
+.harry-potter div {
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  margin: 1px;
+}
+
+.harry-potter img {
+  width: 50px;
+  margin: 1px;
+}
+
+.utils {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column-reverse;
+  order: 2;
+}
+
+.bomb, .score {
+  background-color: yellow;
+  width: 160px;
+  height: 45px;
+  font-family: 'Arial';
+  font-size: 24px;
+  text-align: center;
+  text-transform: lowercase;
+  padding-top: 20px;
+}
+
+.score {
+  margin-bottom: 10px;
+  background-color: #F1E39A;
+}
+
+.bomb {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  background-color: #773838;
+  
+}
+
+.loader {
+  position: relative;
+  align-items: baseline;
+  width: 40px;
+  height: 8px;
+  background-color: #AABDC5;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 8px;
+  background-color: #4591B1;
+}
+
+.popup {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 150px;
+  background-color: rgba(140, 133, 133, 0.5);
+}
+
+.popup__card {
+  position: relative;
+  width: 30vw;
+  height: 50vh;
+  border-radius: 20px;
+  margin: 0 auto;
+  background-color: #d8c288;
+}
+
+.popup__title {
+  text-align: center;
+  padding-top: 130px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #574b2d;
+}
+
+.popup__description {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #71623a;
+}
