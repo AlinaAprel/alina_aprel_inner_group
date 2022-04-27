@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "http-server -c-1 -p 8080",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "prettier": "prettier ./src",
@@ -40,5 +41,9 @@
     "jest": "^27.5.1",
     "parcel": "^2.3.2",
     "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "http-server": "^14.1.0",
+    "live-server": "^1.2.1"
   }
 }

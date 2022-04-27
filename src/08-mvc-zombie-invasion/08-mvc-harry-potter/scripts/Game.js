@@ -1,30 +1,39 @@
-class Game {
+export class Game {
+  constructor(score, delay, isPlaying, popup, renderFieldInterval, renderBombInterval) { 
+    this.score = score;
+    this.delay = delay;
+    this.isPlaying = isPlaying;
+    this.popup = popup;
+    this.renderFieldInterval = renderFieldInterval;
+    this.renderBombInterval = renderBombInterval;
+  }
   startGame() {
     location.reload();
   }
 
   gameOver() {
-    render.renderPopup(score);
-    clearInterval(renderFieldInterval);
-    clearInterval(renderBombInterval);
-    document.querySelector('#app').style.display = 'none';
-    document.querySelector('.popup').style.display = 'block';
-    isPlaying = false;
+    this.popup.renderPopup(this.score);
+    this.clearIntervals();
+    this.popup.showPopup();
+    this.isPlaying = false;
+  }
+
+  getIsPlaying() {
+    return this.isPlaying;
   }
 
   updateScore() {
-    const gameUtils = document.querySelector('.utils');
-    const gameScore = document.querySelector('.score');
-    gameScore.innerHtml = '';
+    this.score += 10;
 
-    score += 10;
-    gameScore.textContent = `score: ${score}`;
-
-    if (score % 200 === 0 && delay > 1000) {
-      delay -= delay * 0.1;
-      console.log(delay);
+    if (this.score % 200 === 0 && this.delay > 1000) {
+      this.delay -= this.delay * 0.1;
     }
 
-    gameUtils.append(gameScore);
+    return this.score;
+  }
+
+  clearIntervals() {
+    clearInterval(this.renderFieldInterval);
+    clearInterval(this.renderBombInterval);
   }
 }

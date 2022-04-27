@@ -1,62 +1,74 @@
-class Shoots {
+export class Shoots {
+  constructor(matrix, matrixRow, render, harry, game, matrixUtils) {
+    this.matrix = matrix;
+    this.matrixRow = matrixRow;
+    this.render = render;
+    this.harry = harry;
+    this.game = game;
+    this.matrixUtils = matrixUtils;
+    this.isKill = false;
+    this.volanCell = null;
+  }
   shoot() {
-    const app = document.querySelector('#app');
-    let gameField = document.querySelector('.harry-potter');
-    gameField.innerHTML = '';
-    let harryCell = harry.findHarry(matrix);
-    let isKill = false;
+    this.render.clearGameField();
+    this.isKill = false;
 
-    for (let y = 14; y >= 0; y--) {
-      if (matrix[y][harryCell.x].isVolan) {
-        matrix[y][harryCell.x].isVolan = false;
-        isKill = true;
-        game.updateScore();
+    this.changeVolanProperty('shoot');
+
+    if (this.isKill) {
+      this.render.uploadApp();
+    } else {
+      this.render.renderEnemyField();
+    }
+  }
+
+  changeVolanProperty(state) {
+    const harryCell = this.harry.positionHarry();
+
+    for (let y = this.matrixRow - 1; y >= 0; y--) {
+      if (this.matrix[y][harryCell.x].isVolan) {
+        this.isKill = true;
+
+        if (state === 'shootMine') {
+          this.volanCell = this.matrix[y][harryCell.x];
+          this.volanCell.isVolan = false;
+        }
+
+        if (state === 'shoot') {
+          this.matrix[y][harryCell.x].isVolan = false;
+          this.score = this.game.updateScore();
+          this.render.renderScore(this.score);
+        }
+
         break;
       }
-    }
-
-    if (isKill) {
-      gameField = render.uploadField(gameField);
-      app.append(gameField);
-    } else {
-      render.renderField();
     }
   }
 
   shootMine() {
-    const app = document.querySelector('#app');
-    let gameField = document.querySelector('.harry-potter');
-    let harryCell = harry.findHarry(matrix);
-    let volanCell = null;
     let aroundCells = null;
-    let isExist = false;
+    this.isKill = false;
+    this.volanCell = null;
 
-    for (let y = 14; y >= 0; y--) {
-      if (matrix[y][harryCell.x].isVolan) {
-        volanCell = matrix[y][harryCell.x];
-        volanCell.isVolan = false;
-        isExist = true;
-        break;
-      }
-    }
+    this.changeVolanProperty('shootMine');
 
-    if (isExist) {
-      gameField.innerHTML = '';
-      aroundCells = matrixUtils.getAroundCells(
-        matrix,
-        volanCell.y,
-        volanCell.x
+    if (this.isKill) {
+      this.render.clearGameField();
+      aroundCells = this.matrixUtils.getAroundCells(
+        this.matrix,
+        this.volanCell.y,
+        this.volanCell.x
       );
 
       aroundCells.forEach((cell) => {
         if (cell.isVolan) {
           cell.isVolan = false;
-          game.updateScore();
+          this.score = this.game.updateScore();
+          this.render.renderScore(this.score);
         }
       });
 
-      gameField = render.uploadField(gameField);
-      app.append(gameField);
+      this.render.uploadApp();
     }
   }
 }

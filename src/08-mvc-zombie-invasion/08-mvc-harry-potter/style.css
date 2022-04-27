@@ -5,27 +5,27 @@ body {
 
 #app {
   display: flex;
-  justify-content: center;
-  gap: 10px 20px;
+  flex-wrap: wrap;
+  width: 546px;
+  margin: 0 auto;
+  padding-top: 50px;
 }
 
-.harry-potter {
+.game-field {
   order: 1;
-  border: 3px solid #A88F51;
   padding: 5px;
   background-color: #D3BD84;
+  border-top: 3px solid #A88F51;
+  border-left: 3px solid #A88F51;
+  border-right: 3px solid #A88F51;
 }
 
-.harry-potter div {
-  margin: 0;
-  padding: 0;
+.game-field div {
   height: 50px;
-  margin: 1px;
 }
 
-.harry-potter img {
+.game-field img {
   width: 50px;
-  margin: 1px;
 }
 
 .utils {
@@ -33,10 +33,10 @@ body {
   align-self: flex-end;
   flex-direction: column-reverse;
   order: 2;
+  margin-left: 20px;
 }
 
 .bomb, .score {
-  background-color: yellow;
   width: 160px;
   height: 45px;
   font-family: 'Arial';
@@ -57,7 +57,6 @@ body {
   justify-content: space-around;
   align-items: baseline;
   background-color: #773838;
-  
 }
 
 .loader {
@@ -75,6 +74,26 @@ body {
   z-index: 1;
   height: 8px;
   background-color: #4591B1;
+}
+
+.harry {
+  display: flex;
+  width: 350px;
+  height: 50px;
+  padding: 5px;
+  order: 3;
+  background-color: #D3BD84;
+  border-left: 3px solid #A88F51;
+  border-right: 3px solid #A88F51;
+  border-bottom: 3px solid #A88F51;
+}
+
+.harry div {
+  height: 50px;
+}
+
+.harry img {
+  width: 50px;
 }
 
 .popup {

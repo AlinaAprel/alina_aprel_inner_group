@@ -1,10 +1,15 @@
-class Matrix {
-  getRandomIndexes() {
+export class Matrix {
+  constructor(max, min, column) {
+    this.max = max;
+    this.min = min;
+    this.column = column;
+  }
+  getEnemyIndexes() {
     const array = [];
-    const amount = Math.random() * (6 - 2) + 2;
+    const amount = Math.floor(Math.random() * (this.max - this.min) + this.min);
 
-    for (let i = 0; i < amount; i++) {
-      const index = Math.floor(Math.random() * (7 - 0) + 0);
+    for (let i = 0; array.length < amount; i++) {
+      const index = Math.floor(Math.random() * this.column);
 
       if (!array.includes(index)) {
         array.push(index);
@@ -16,13 +21,11 @@ class Matrix {
 
   getMatrix(columns, rows) {
     const matrix = [];
-    let idCounter = 1;
 
     for (let y = 0; y < rows; y++) {
       const row = [];
       for (let x = 0; x < columns; x++) {
         row.push({
-          id: idCounter++,
           x,
           y,
           isVolan: false,
@@ -37,7 +40,7 @@ class Matrix {
   }
 
   getCell(matrix, y, x) {
-    if (!matrix[y] || !matrix[y][x]) return false;
+    if (!matrix?.[y] || !matrix?.[y][x]) return false;
 
     return matrix[y][x];
   }

@@ -1,45 +1,40 @@
-class Render {
+export class Render {
+  constructor(matrix, matrixRow, matrixHarry, matrixUtils, loader, enemy) {
+    this.matrix = matrix;
+    this.matrixRow = matrixRow;
+    this.matrixHarry = matrixHarry;
+    this.matrixUtils = matrixUtils;
+    this.loader = loader;
+    this.enemy = enemy;
+  }
   renderAll() {
-    const indexes = matrixUtils.getRandomIndexes();
-    const game = document.querySelector('#app');
+    const app = document.querySelector('#app');
     const gameField = document.createElement('div');
-    gameField.classList.add('harry-potter');
+    gameField.classList.add('game-field');
 
-    for (let y = 0; y < matrix.length; y++) {
-      const rowElement = document.createElement('div');
-      rowElement.classList.add('row');
+    this.renderMatrixCells(gameField, this.matrix, 'renderAll');
 
-      for (let x = 0; x < matrix[y].length; x++) {
-        const cell = matrix[y][x];
-        const imgElement = document.createElement('img');
-        imgElement.draggable = false;
-        imgElement.oncontextmenu = () => false;
-        imgElement.setAttribute('id', cell.id);
-        rowElement.append(imgElement);
+    app.append(gameField);
 
-        indexes.forEach((index) => {
-          matrix[0][index].isVolan = true;
-        });
+    this.renderUtils();
+    this.renderHarryField();
+  }
 
-        if (y === 14 && x === 3) {
-          cell.isHarry = true;
-          imgElement.src = './assets/harry.png';
-        }
+  uploadApp() {
+    const app = document.querySelector('#app');
+    let gameField = document.querySelector('.game-field')
+    gameField = this.renderMatrixCells(gameField, this.matrix, 'uploadEnemyField');
+    app.append(gameField);
+  }
 
-        if (cell.isVolan) {
-          imgElement.src = './assets/volan.png';
-        }
-      }
-
-      gameField.append(rowElement);
-    }
-
+  renderUtils() {
+    const app = document.querySelector('#app');
     const gameUtils = document.createElement('div');
     gameUtils.classList.add('utils');
 
     const gameScore = document.createElement('div');
     gameScore.classList.add('score');
-    gameScore.textContent = '0 points';
+    gameScore.textContent = 'score: 0';
 
     const gameBomb = document.createElement('div');
     gameBomb.classList.add('bomb');
@@ -56,110 +51,98 @@ class Render {
     gameUtils.append(gameBomb);
     gameUtils.append(gameScore);
 
-    game.append(gameField);
-    game.append(gameUtils);
+    app.append(gameUtils);
   }
 
-  renderBomb() {
-    const loading = document.querySelector('.loading');
-    const bomb = document.querySelector('.bomb');
-
-    if (loadingWidth < 40) {
-      loadingWidth += 4;
-      loading.style.width = loadingWidth + 'px';
-      isReadyToShoot = false;
-      bomb.style.backgroundColor = '#773838';
-    } else {
-      isReadyToShoot = true;
-      bomb.style.backgroundColor = '#A55B5B';
-    }
-  }
-
-  renderPopup(score) {
-    const body = document.querySelector('body');
-    const popup = document.createElement('div');
-    popup.classList.add('popup');
-
-    const popupCard = document.createElement('div');
-    popupCard.classList.add('popup__card');
-
-    const popupTitle = document.createElement('h1');
-    popupTitle.classList.add('popup__title');
-    popupTitle.textContent = `your score: ${score}`;
-
-    const popupDescription = document.createElement('p');
-    popupDescription.classList.add('popup__description');
-    popupDescription.textContent = 'press ENTER to restart the game';
-
-    popupCard.append(popupTitle);
-    popupCard.append(popupDescription);
-    popup.append(popupCard);
-    body.append(popup);
-  }
-
-  renderField() {
+  renderEnemyField() {
     const app = document.querySelector('#app');
-    let gameField = document.querySelector('.harry-potter');
-    const arrayOfCells = [];
-
-    // очищаем игровое поле
+    let gameField = document.querySelector('.game-field');
     gameField.innerHTML = '';
-    const arrayOfindexes = matrixUtils.getRandomIndexes();
 
-    for (let y = 0; y < matrix.length; y++) {
-      for (let x = 0; x < matrix[y].length; x++) {
-        if (matrix[y][x].isVolan) {
-          arrayOfCells.push(matrix[y][x]);
-        }
-      }
-    }
+    this.enemy.moveEnemy();
 
-    // смена флагов
-    for (let i = arrayOfCells.length - 1; i >= 0; i--) {
-      arrayOfCells[i].isVolan = false;
-      if (arrayOfCells[i].y === 13) {
-        game.gameOver();
-      }
-      matrix[arrayOfCells[i].y + 1][arrayOfCells[i].x].isVolan = true;
-    }
-
-    arrayOfindexes.forEach((index) => {
-      matrix[0][index].isVolan = true;
-    });
-
-    // создаем на основании новых флагов новую доску
-    gameField = this.uploadField(gameField);
-
+    gameField = this.renderMatrixCells(gameField, this.matrix, 'uploadEnemyField');
     app.append(gameField);
   }
 
-  uploadField(gameField) {
+  renderHarryField() {
+    const app = document.querySelector('#app');
+    const harryField = document.createElement('div');
+    harryField.classList.add('harry');
+
+    this.renderMatrixCells(harryField, this.matrixHarry, 'renderHarryField');
+
+    app.append(harryField);
+  }
+
+  uploadHarryField() {
+    const app = document.querySelector('#app');
+    const harryField = document.querySelector('.harry');
+    harryField.innerHTML = '';
+
+    this.renderMatrixCells(harryField, this.matrixHarry, 'uploadHarryField');
+
+    app.append(harryField);
+  }
+
+  renderMatrixCells(field, matrix, state) {
+    if (state === 'renderAll') {
+      const indexes = this.matrixUtils.getEnemyIndexes();
+
+      indexes.forEach((index) => {
+        matrix[0][index].isVolan = true;
+      });
+    }
+
     for (let y = 0; y < matrix.length; y++) {
       const rowElement = document.createElement('div');
-      rowElement.classList.add('row');
 
       for (let x = 0; x < matrix[y].length; x++) {
         const cell = matrix[y][x];
         const imgElement = document.createElement('img');
         imgElement.draggable = false;
         imgElement.oncontextmenu = () => false;
-        imgElement.setAttribute('id', cell.id);
+
         rowElement.append(imgElement);
 
-        if (cell.isVolan) {
-          imgElement.src = './assets/volan.png';
-          continue;
+        if (state === 'renderHarryField') {
+          matrix[0][3].isHarry = true;
         }
 
         if (cell.isHarry) {
           imgElement.src = './assets/harry.png';
-          continue;
+        }
+
+        if (cell.isVolan) {
+          imgElement.src = './assets/volan.png';
         }
       }
 
-      gameField.append(rowElement);
+      field.append(rowElement);
     }
 
-    return gameField;
+    if (state === 'uploadEnemyField') {
+      return field;
+    }
+  }
+
+  renderBomb() {
+    const loading = document.querySelector('.loading');
+    const bomb = document.querySelector('.bomb');
+
+    this.loader.increaseLoadingWidth(loading, bomb);
+  }
+
+  renderScore(score) {
+    const gameUtils = document.querySelector('.utils');
+    const gameScore = document.querySelector('.score');
+    gameScore.innerHtml = '';
+    gameScore.textContent = `score: ${score}`;
+    gameUtils.append(gameScore);
+  }
+
+  clearGameField() {
+    let gameField = document.querySelector('.game-field');
+    gameField.innerHTML = '';
   }
 }
