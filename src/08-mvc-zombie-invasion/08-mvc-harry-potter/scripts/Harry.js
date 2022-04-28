@@ -5,6 +5,7 @@ export class Harry {
     this.render = render;
     this.harryLine = this.matrixHarry[0];
   }
+  
   positionHarry() {
     let harryCell = null;
 

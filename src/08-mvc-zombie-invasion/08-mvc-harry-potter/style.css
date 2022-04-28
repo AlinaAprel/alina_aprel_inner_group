@@ -59,6 +59,10 @@ body {
   background-color: #773838;
 }
 
+.bomb p {
+  margin: 0;
+}
+
 .loader {
   position: relative;
   align-items: baseline;
@@ -97,7 +101,6 @@ body {
 }
 
 .popup {
-  display: none;
   width: 100vw;
   height: 100vh;
   padding-top: 150px;

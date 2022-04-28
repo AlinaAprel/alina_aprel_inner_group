@@ -14,7 +14,6 @@ export class Game {
   gameOver() {
     this.popup.renderPopup(this.score);
     this.clearIntervals();
-    this.popup.showPopup();
     this.isPlaying = false;
   }
 

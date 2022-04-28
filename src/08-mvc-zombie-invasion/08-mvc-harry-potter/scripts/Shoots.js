@@ -9,6 +9,7 @@ export class Shoots {
     this.isKill = false;
     this.volanCell = null;
   }
+  
   shoot() {
     this.render.clearGameField();
     this.isKill = false;

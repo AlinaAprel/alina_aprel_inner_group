@@ -24,6 +24,7 @@ export class Matrix {
 
     for (let y = 0; y < rows; y++) {
       const row = [];
+      
       for (let x = 0; x < columns; x++) {
         row.push({
           x,
@@ -50,14 +51,12 @@ export class Matrix {
 
     for (let dx = -1; dx <= 1; dx++) {
       for (let dy = -1; dy <= 1; dy++) {
-        if (dx === 0 && dy === 0) {
-          continue;
-        }
+        if (!(dx === 0 && dy === 0)) {
+          const cell = this.getCell(matrix, y + dy, x + dx);
 
-        const cell = this.getCell(matrix, y + dy, x + dx);
-
-        if (cell) {
-          cells.push(cell);
+          if (cell) {
+            cells.push(cell);
+          }
         }
       }
     }

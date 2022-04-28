@@ -7,9 +7,11 @@ export class Render {
     this.loader = loader;
     this.enemy = enemy;
   }
+
   renderAll() {
     const app = document.querySelector('#app');
     const gameField = document.createElement('div');
+
     gameField.classList.add('game-field');
 
     this.renderMatrixCells(gameField, this.matrix, 'renderAll');
@@ -23,35 +25,27 @@ export class Render {
   uploadApp() {
     const app = document.querySelector('#app');
     let gameField = document.querySelector('.game-field')
+    
     gameField = this.renderMatrixCells(gameField, this.matrix, 'uploadEnemyField');
     app.append(gameField);
   }
 
   renderUtils() {
     const app = document.querySelector('#app');
-    const gameUtils = document.createElement('div');
-    gameUtils.classList.add('utils');
 
-    const gameScore = document.createElement('div');
-    gameScore.classList.add('score');
-    gameScore.textContent = 'score: 0';
+    const gameUtils = `
+      <div class="utils">
+        <div class="bomb">
+          <p>bomb</p>
+          <div class="loader">
+            <div class="loading"></div>
+          </div>
+        </div>
+        <div class="score">score: 0</div>
+      </div>
+    `;
 
-    const gameBomb = document.createElement('div');
-    gameBomb.classList.add('bomb');
-    gameBomb.textContent = 'bomb';
-
-    const loader = document.createElement('div');
-    loader.classList.add('loader');
-
-    const loading = document.createElement('div');
-    loading.classList.add('loading');
-
-    loader.append(loading);
-    gameBomb.append(loader);
-    gameUtils.append(gameBomb);
-    gameUtils.append(gameScore);
-
-    app.append(gameUtils);
+    app.innerHTML += gameUtils;
   }
 
   renderEnemyField() {
@@ -136,6 +130,7 @@ export class Render {
   renderScore(score) {
     const gameUtils = document.querySelector('.utils');
     const gameScore = document.querySelector('.score');
+
     gameScore.innerHtml = '';
     gameScore.textContent = `score: ${score}`;
     gameUtils.append(gameScore);
