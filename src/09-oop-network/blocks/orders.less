@@ -1,0 +1,25 @@
+// main: ../css/main.less
+
+.orders-data {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 60px 80px;
+  background-image: url(@bg-image);
+}
+
+.orders-data__title {
+  font-size: 48px;
+  font-family: @font;
+  font-weight: normal;
+  color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+  .orders-data {
+    padding: 20px 20px 40px;
+  }
+
+  .orders-data__title {
+    font-size: 24px;
+  }
+}

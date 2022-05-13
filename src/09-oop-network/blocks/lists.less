@@ -1,0 +1,136 @@
+// main: ../css/main.less
+
+.orders-list, .users-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orders-list__block, .users-list__block {
+  display: grid;
+  grid-template-columns: 80px 100px 1fr 50px;
+  width: 50vw;
+  height: 50px;
+  margin-bottom: 1.5%;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.users-list__block {
+  grid-template-columns: 280px 1fr 50px;
+}
+
+.orders-list__block:last-child, .users-list__block:last-child {
+  margin-bottom: 0;
+}
+
+.orders-list__number {
+  padding: 14px 10px 8px;
+  background-color: @number-color;
+  font-size: 18px;
+  font-family: @font;
+  color: @lists-text-color;
+  cursor: pointer;
+}
+
+.orders-list__status {
+  max-width: 150px;
+  margin: 0;
+  padding: 20px 0 0 24px;
+  font-size: 12px;
+  font-family: @font;
+  text-transform: uppercase;
+  color: @lists-text-color;
+} 
+
+.orders-list__status_button {
+  border-radius: 10px;
+  margin: 10px;
+  padding: 0;
+  padding-top: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.orders-list__delivery-address {
+  font-size: 15px;
+  font-family: @font;
+  color: @lists-text-color;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 20px 0 0 20px;
+}
+
+.users-list__name {
+  font-size: 18px;
+  font-family: @font;
+  text-align: center;
+  padding-top: 16px;
+  color: @lists-text-color;
+  background-color: #ff9f56;
+  cursor: pointer;
+}
+
+.users-list__usertype {
+  font-size: 18px;
+  font-family: @font;
+  text-align: center;
+  font-weight: normal;
+  margin: 0;
+  padding-top: 18px;
+  color: @lists-text-color;
+}
+
+@media screen and (max-width: 850px) {
+  .orders-list__block {
+    height: 25px;
+    grid-template-columns: 40px 50px 1fr 25px;
+  }
+
+  .users-list__block {
+    grid-template-columns: 100px 1fr 25px;
+  }
+
+  .users-list__block { 
+    width: 80vw;
+    height: 25px;
+  }
+
+  .users-list__name, .users-list__usertype {
+    font-size: 9px;
+    padding-top: 8px;
+  }
+
+  .orders-list__status {
+    padding: 10px 0 0 10px;
+    font-size: 7px;
+  }
+
+  .orders-list__status_button {
+    border-radius: 5px;
+    margin: 3px;
+    padding: 8px 0 0 2px;
+  }
+
+  .orders-list__number {
+    padding: 8px 5px 4px;
+    font-size: 9px;
+  }
+
+  .orders-list__delivery-address {
+    font-size: 7px;
+    margin: 10px 0 0 10px;
+  }
+}
+
+@media screen and (max-width: 419px) {
+  .orders-list__block {
+    width: 80vw;
+  }
+}
+
+@media screen and (min-width: 420px) and (max-width: 1439px) {
+  .orders-list__block {
+    width: 60vw;
+  }
+}

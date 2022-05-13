@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css" type="text/css">
+  <title>Back and forth</title>
+</head>
+<body>
+
+  <!-- здесь сразу четыре popup'а, добавила 'display: none;',
+  чтобы можно было их поочередно смотреть -->
+
+  <container class="popup popup_is-opened" style="display: none;">
+    <div class="popup__content">
+     <img class="popup__close" src="./images/close.svg" alt="close">
+     <h3 class="popup__title">Create user</h3>
+     <form class="popup__form" action="">
+        <input type="text" name="username" id="username" placeholder="username">
+        <input type="number" name="phone" id="phone" placeholder="phone">
+        <select name="usertype" id="usertype">
+          <option>choose user's type</option>
+          <option>client</option>
+          <option>courier</option>
+          <option>admin</option>
+        </select>
+        <input type="password" class="popup__password" placeholder="password">
+     </form>
+
+     <button class="save-btn">create</button>
+    </div>
+  </container>
+
+  <container class="popup popup_is-opened" style="display: none;">
+    <div class="popup__content">
+     <img class="popup__close" src="./images/close.svg" alt="close">
+     <h3 class="popup__title">Edit user</h3>
+     <form class="popup__form" action="">
+        <input type="text" name="username" id="username" placeholder="username">
+        <input type="number" name="phone" id="phone" placeholder="phone">
+        <select name="usertype" id="usertype">
+          <option>choose user's type</option>
+          <option>client</option>
+          <option>courier</option>
+          <option>admin</option>
+        </select>
+        <input type="password" class="popup__password" placeholder="password">
+     </form>
+
+     <button class="save-btn">save</button>
+    </div>
+  </container>
+
+  <container class="popup popup_is-opened" style="display: none;">
+    <div class="popup__content">
+     <img class="popup__close" src="./images/close.svg" alt="close">
+     <h3 class="popup__title">Edit letter</h3>
+     <form class="popup__form" action="">
+        <input type="number" name="phone" id="phone" placeholder="phone">
+        <input type="text" name="departure-address" id="departure-address" placeholder="departure address">
+        <input type="text" name="delivery-address" id="delivery-address" placeholder="delivery address">
+        <input type="text" name="name" id="name" placeholder="name">
+        <input type="text" name="e-mail" id="e-mail" placeholder="e-mail">
+     </form>
+
+     <button class="save-btn">save</button>
+    </div>
+  </container>
+
+  <container class="popup popup_is-opened">
+    <div class="popup__content">
+     <img class="popup__close" src="./images/close.svg" alt="close">
+     <h3 class="popup__title">Edit order</h3>
+     <form class="popup__form" action="">
+        <input type="number" name="phone" id="phone" placeholder="phone">
+        <input type="text" name="departure-address" id="departure-address" placeholder="departure address">
+        <input type="text" name="delivery-address" id="delivery-address" placeholder="delivery address">
+        <input type="text" name="name" id="name" placeholder="name">
+        <input type="text" name="e-mail" id="e-mail" placeholder="e-mail">
+        <input type="number" name="width" id="width" placeholder="width">
+        <input type="number" name="height" id="height" placeholder="height">
+        <input type="number" name="depth" id="depth" min="20" max="2000" placeholder="depth">
+        <input type="number" name="weight" id="weight" min="0.1" max="100" placeholder="weight">
+     </form>
+     <button class="save-btn">save</button>
+    </div>
+  </container>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css" type="text/css">
+  <title>Back and forth</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <img class="header__logo-img" src="./images/logo.png" alt="logo">
+      <h1 class="header__slogan">your trusted logistics partner</h1>
+    </div>
+    <div class="header__order-info">
+      <img class="header__account" src="./images/account.png" alt="account">
+    </div>
+  </header>
+
+  <main class="orders-data">
+    <h2 class="orders-data__title">Orders for today: <span>5</span></h2>
+
+    <div class="filter">
+      <input type="text" name="date" id="date" placeholder="22.05.22">
+      <input type="text" name="departure-address" id="departure-address" placeholder="departure address">
+      <input type="text" name="delivery-address" id="delivery-address" placeholder="delivery address">
+      <img class="search-btn" src="./images/search.svg" alt="search">
+    </div>
+
+    <div class="orders-list">
+      <div class="orders-list__block">
+        <div class="orders-list__number"><a>454545</a></div>
+        <p class="orders-list__status orders-list__status_button delayed">delay</p>
+        <p class="orders-list__status orders-list__status_button delivered">delivered</p>
+        <img class="chat-btn" src="./images/chat.svg" alt="chat">
+      </div>
+
+      <div class="orders-list__block">
+        <div class="orders-list__number"><a>454545</a></div>
+        <p class="orders-list__status orders-list__status_button delayed">delay</p>
+        <p class="orders-list__status orders-list__status_button delivered">delivered</p>
+        <img class="chat-btn" src="./images/chat.svg" alt="chat">
+      </div>
+
+      <div class="orders-list__block">
+        <div class="orders-list__number"><a>454545</a></div>
+        <p class="orders-list__status orders-list__status_button delayed">delay</p>
+        <p class="orders-list__status orders-list__status_button delivered">delivered</p>
+        <img class="chat-btn" src="./images/chat.svg" alt="chat">
+      </div>
+
+      <button class="show-btn" src="./images/search.svg" alt="show more">show more</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <img class="footer__company-logo" src="./images/footer-logo.png" alt="back and forth">
+    <div class="footer__company-info">
+      <h4 class="footer__company-name">back and forth</h4>
+      <p class="footer__company-address">Ryazan, Leninskovo Komsomola 17</p>
+      <p class="footer__author">&#169; 2022 - 2022</p>
+    </div>
+    <div class="footer__contacts">
+      <p class="footer__phone">+7 910 567 6788</p>
+      <p class="footer__email">backforth@gmail.com</p>
+    </div>
+  </footer>
+</body>
+</html>

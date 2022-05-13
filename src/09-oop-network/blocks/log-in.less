@@ -1,0 +1,67 @@
+// main: ../css/main.less
+
+.log-in {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px 80px;
+  background-image: url(@bg-image);
+}
+
+.log-in__form {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  padding: 60px 0 40px 40px;
+  border: @border-2px;
+  background-color: #FFFFFF;
+}
+
+.log-in__login, .log-in__password {
+  width: calc(40vw - 40px);
+  height: 40px;
+  padding-left: 8px;
+  border: @border-1px;
+}
+
+.log-in__login {
+  margin-bottom: 40px;
+}
+
+.log-in__button {
+  width: 160px;
+  height: 40px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  border: 3px solid #ff6f00;
+  background-color: #fe882d;
+  font-size: 15px;
+  font-family: @font;
+  color: @text-color;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+  .log-in {
+    padding: 40px 40px;
+  }
+
+  .log-in__form {
+    width: 60vw;
+    padding: 30px 0 20px 20px;
+  }
+
+  .log-in__login, .log-in__password {
+    width: calc(40vw - 20px);
+    height: 30px;
+  }
+
+  .log-in__button {
+    width: 120px;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: 2px solid #ff6f00;
+    font-size: 10px;
+  }
+}

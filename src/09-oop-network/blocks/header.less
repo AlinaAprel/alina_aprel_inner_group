@@ -1,0 +1,109 @@
+// main: ../css/main.less
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: @bg-main;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.header__logo-img {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.header__slogan {
+  font-size: 20px;
+  font-family: @font;
+  font-style: normal;
+  color: @text-color;
+  text-transform: uppercase;
+}
+
+.header__order-info {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.header__new-order {
+  width: 40px;
+  height: 40px;
+  background-color: @bg-button;
+  border-radius: 50px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.header__chat {
+  width: 40px;
+  height: 40px;
+  margin-right: 30px;
+  cursor: pointer;
+  background-color: @bg-button;
+  border-radius: 5px;
+}
+
+.header__account {
+  width: 40px;
+  height: 40px;
+  background-color: @bg-button;
+  border-radius: 5px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.header__menu-img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .header__logo {
+    margin-left: 10px;
+  }
+
+  .header__logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header__slogan {
+    font-size: 14px;
+  }
+
+  .header__order-info {
+    margin-right: 10px;
+  }
+
+  .header__account {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
+
+  .header__menu-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .header__new-order {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .header__chat {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+}
