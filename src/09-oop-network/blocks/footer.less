@@ -1,0 +1,153 @@
+// main: ../css/main.less
+
+.footer {
+  display: flex;
+  background-color: @bg-main;
+  padding: 40px;
+}
+
+.footer__company-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+  margin-top: 20px;
+}
+
+.footer__company-logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+
+.footer__company-name {
+  font-size: 48px;
+  font-family: @font;
+  text-transform: uppercase;
+  color: @text-color;
+  margin: 0;
+}
+
+.footer__phone, .footer__email {
+  font-size: 18px;
+  font-family: @font;
+  color: @text-color;
+}
+
+.footer__contacts {
+  margin-left: 340px;
+  align-self: flex-end;
+}
+
+.footer__company-address {
+  font-size: 20px;
+  font-family: @font;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: @text-color;
+  margin-top: 10px;
+}
+
+.footer__author {
+  font-size: 14px;
+  width: 100px;
+  font-family: @font;
+  text-transform: lowercase;
+  color: @text-color;
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    padding: 20px;
+  }
+
+  .footer__company-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer__company-info {
+    margin-top: 0;
+    margin-left: 20px;
+  }
+
+  .footer__company-name {
+    font-size: 24px;
+  }
+
+  .footer__company-address {
+    font-size: 10px;
+  }
+
+  .footer__author {
+    font-size: 7px;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .footer__phone, .footer__email {
+    font-size: 9px;
+  }
+
+  .footer__email {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1400px) {
+  .footer {
+    padding: 30px;
+  }
+
+  .footer__company-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .footer__company-info {
+    margin-top: 0;
+    margin-left: 30px;
+  }
+
+  .footer__company-address {
+    font-size: 14px;
+  }
+
+  .footer__author {
+    font-size: 10px;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .footer__phone, .footer__email {
+    font-size: 12px;
+  }
+
+  .footer__email {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 433px) {
+  .footer__contacts {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (min-width: 434px) and (max-width: 482px) {
+  .footer__contacts {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (min-width: 483px) and (max-width: 530px) {
+  .footer__contacts {
+    margin-left: 100px;
+  }
+}
+
+@media screen and (min-width: 531px) and (max-width: 620px) {
+  .footer__contacts {
+    margin-left: 200px;
+  }
+}

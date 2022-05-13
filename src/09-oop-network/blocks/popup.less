@@ -1,0 +1,87 @@
+// main: ../css/main.less
+
+.popup_is-opened {
+  display: flex;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: @bg-popup;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup__content { 
+  position: relative;
+  width: 430px;
+  min-height: 330px;
+  padding: 34px 36px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.popup__close {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.popup__title {
+  margin-top: 0;
+  font-size: 24px;
+  font-family: @font;
+  color: #000000;
+}
+
+.popup__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__form input, .popup__form select {
+  margin-bottom: 20px;
+  height: 30px;
+  border: @border-1px;
+  outline: none;
+}
+
+.popup__form input {
+  padding-left: 5px;
+}
+
+.popup__form select {
+  font-size: 14px;
+  font-family: @font;
+  color: #535353;
+}
+
+@media screen and (max-width: 500px) {
+  .popup__content { 
+    width: 250px;
+    padding: 20px 22px;
+  }
+
+  .popup__close {
+    top: -20px;
+    right: -20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .popup__form input, .popup__form select {
+    margin-bottom: 20px;
+    height: 20px;
+  }
+
+  .popup__form input:last-child {
+    margin-bottom: 30px;
+  }
+}

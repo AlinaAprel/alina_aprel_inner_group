@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css" type="text/css">
+  <title>Back and forth</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <img class="header__logo-img" src="./images/logo.png" alt="logo">
+      <h1 class="header__slogan">your trusted logistics partner</h1>
+    </div>
+    <div class="header__order-info">
+      <img class="header__account" src="./images/account.png" alt="account">
+      <img class="header__menu-img" src="./images/menu.svg" alt="menu">
+    </div>
+  </header>
+
+  <main>
+    <div class="filter filter_order">
+      <input type="text" name="client-name" id="client-name" placeholder="client name">
+      <input type="text" name="courier-name" id="courier-name" placeholder="courier name">
+      <input type="text" name="delivery-address" id="delivery-address" placeholder="delivery address">
+      <input type="text" name="status" id="status" placeholder="status">
+      <img class="search-btn" src="./images/search.svg" alt="search">
+    </div>
+
+    <div class="orders-list">
+      <div class="orders-list__block">
+        <div class="orders-list__number"><a>564683</a></div>
+        <p class="orders-list__status waiting">waiting</p>
+        <p class="orders-list__delivery-address">Ryazan, Ulitsa Lenina 9</p>
+        <img class="edit-btn" src="./images/edit.svg" alt="edit">
+      </div>
+
+      <div class="orders-list__block">
+        <a class="orders-list__number">001939</a>
+        <p class="orders-list__status delayed">delayed</p>
+        <p class="orders-list__delivery-address">Moscow, Ulitsa Dolskaya 1</p>
+        <img class="edit-btn" src="./images/edit.svg" alt="edit">
+      </div>
+
+      <div class="orders-list__block">
+        <a class="orders-list__number">223941</a>
+        <p class="orders-list__status waiting">waiting</p>
+        <p class="orders-list__delivery-address">Ryazan, Ulitsa Gagarina 69</p>
+        <img class="edit-btn" src="./images/edit.svg" alt="edit">
+      </div>
+
+      <div class="orders-list__block">
+        <a class="orders-list__number">396754</a>
+        <p class="orders-list__status waiting">waiting</p>
+        <p class="orders-list__delivery-address">Pskov, Ulitsa Vorovskogo 6</p>
+        <img class="edit-btn" src="./images/edit.svg" alt="edit">
+      </div>
+      
+      <div class="orders-list__block">
+        <a class="orders-list__number">028432</a>
+        <p class="orders-list__status delayed">delayed</p>
+        <p class="orders-list__delivery-address">Mars, Ulitsa Sovetskaya 17</p>
+        <img class="edit-btn" src="./images/edit.svg" alt="edit">
+      </div>
+      <button class="show-btn">show more</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <img class="footer__company-logo" src="./images/footer-logo.png" alt="back and forth">
+    <div class="footer__company-info">
+      <h4 class="footer__company-name">back and forth</h4>
+      <p class="footer__company-address">Ryazan, Leninskovo Komsomola 17</p>
+      <p class="footer__author">&#169; 2022 - 2022</p>
+    </div>
+    <div class="footer__contacts">
+      <p class="footer__phone">+7 910 567 6788</p>
+      <p class="footer__email">backforth@gmail.com</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+// compress: true, sourceMap: true
+
+@import './vars.less';
+
+body {
+  margin: 0;
+}
+
+main {
+  background-image: url(@bg-image);
+  padding: 8% 0;
+}
+
+.waiting {
+  background-color: @waiting-color;
+}
+
+.delayed {
+  background-color: @delayed-color;
+}
+
+.delivered {
+  background-color: @delivered-color;
+}
+
+@import '../blocks/header.less';
+@import '../blocks/footer.less';
+@import '../blocks/admin-page.less';
+@import '../blocks/log-in.less';
+@import '../blocks/lists.less';
+@import '../blocks/orders.less';
+@import '../blocks/popup.less';
+@import '../blocks/filter.less';
+@import '../blocks/buttons.less';
+
+
